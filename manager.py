@@ -76,8 +76,8 @@ class Manager:
         commands = [
             "ALTER TABLE ", "BETWEEN ", "CREATE TABLE ", "DELETE ", "DROP " 
             "INNER JOIN ", "INSERT ", "INTO ", "IS NULL ", "IS NOT NULL ", "OUTER JOIN ", 
-            "SELECT ", "SELECT DISTINCT ", "UPDATE ", "WHERE ", "WITH ", "VALUES"
-                ]
+            "SELECT ", "SELECT DISTINCT ", "UPDATE ", "UNION ", "WHERE ", "WITH ", "VALUES"
+        ]
         syntax = ["'\)", "\-\-"]
         for elem in syntax + commands:
             if re.search(elem, string):
@@ -85,9 +85,7 @@ class Manager:
         return True    
     
     def add(self, site, username, password, **info):
-        assert self.fetch(site)[0] != site, str( 
-            f"Information already exists for site '{site}'"
-        )
+        assert self.fetch(site)[0] != site, f"Information already exists for site '{site}'"
         info = (
             self._convert_to_storage(site),
             self._convert_to_storage(username),
