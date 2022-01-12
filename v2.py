@@ -62,6 +62,6 @@ class Manager:
 
 
 if __name__ == "__main__":
-    with Manager("qdh5ykmtDrpjf4phPskLnx4k") as manager:
+    with Manager("master-password") as manager:
         #manager.add("Instagram", "tom.barnes1_", "1234")
         print(manager.fetch("Instagram"))
